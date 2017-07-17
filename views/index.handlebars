@@ -1,0 +1,31 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1>Hello, {{ user.name}}</h1>
+    <p>Your email is {{ user.email }}</p>
+    {{!-- if --}}
+    {{#if user.isAdmin}}
+      <p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Send Email &raquo;</a>
+      </p>
+    {{/if}}
+    {{!-- else --}}
+    {{#unless user.isAdmin}}
+      <p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">User Login &raquo;</a>
+      </p>
+    {{/unless}}
+  </div>
+</div>
+
+<div class="container">
+  {{> form}}
+  <ul>
+    {{#each blogs as |blog|}}
+      <li>
+        <h3> {{ blog.title }} </h3>
+        <p> {{ blog.content }} </p>
+      </li>
+
+    {{/each}}
+  </ul>
+</div>
